@@ -1,6 +1,5 @@
 package com.company;
 
-import java.lang.reflect.TypeVariable;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -35,7 +34,7 @@ public class Main {
         listOfUsers.add(new User("9@1.com", LocalDate.now().minusDays(15), "Experienced user"));
         listOfUsers.add(new User("10@1.com", LocalDate.now().minusDays(25), "Experienced user"));
         listOfUsers.add(new User("11@1.com", LocalDate.now().minusDays(10), "New user"));
-        System.out.println("List of Users: \n" + listOfUsers+ "\n");
+        System.out.println("List of Users: \n" + listOfUsers + "\n");
 
         var map1 = listOfUsers.stream()
                 .filter(user -> user.getLoginDate().isAfter(LocalDate.now().minusDays(7)))
@@ -50,7 +49,7 @@ public class Main {
         System.out.println("Users grouped by a team: " + map2);
 
 
-         // 3. There are 2 collections with movies. Each Movie has a ticket’s price,  genre.
+        // 3. There are 2 collections with movies. Each Movie has a ticket’s price,  genre.
         // Per each genre calculate the average price of tickets and count movies for a particular genre.
 
         System.out.println("\n-----------------------------------------------------------------------------\nItem 3:\n");
@@ -82,8 +81,7 @@ public class Main {
 
         var averagePriceOfTickets = listOfMovies.stream()
                 .flatMap(Collection::stream)
-                .collect(Collectors.groupingBy(Movie::getGenre, Collectors.averagingInt(Movie::getTicketPrice)))
-                ;
+                .collect(Collectors.groupingBy(Movie::getGenre, Collectors.averagingInt(Movie::getTicketPrice)));
 
 
         System.out.println("Count movies for a particular genre:  " + countMoviesOfGenre);
@@ -122,7 +120,7 @@ public class Main {
 
 //        System.out.println(listOfBoxes);
 
-      listOfBoxes.stream()
+        listOfBoxes.stream()
                 .flatMap(Collection::stream)
                 .filter(it -> it.isFragile())
                 .forEach(System.out::println);
