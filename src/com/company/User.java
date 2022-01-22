@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class User {
 
-
     private String email;
     private LocalDate loginDate;
     private String team;

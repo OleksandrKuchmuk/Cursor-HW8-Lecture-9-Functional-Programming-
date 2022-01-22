@@ -1,9 +1,9 @@
 package com.company;
 
 public class Movie {
-   private int ticketPrice;
-   private String genre;
-   private String movieTitle;
+    private int ticketPrice;
+    private String genre;
+    private String movieTitle;
 
     public Movie(String movieTitle, String genre, int ticketPrice) {
         this.ticketPrice = ticketPrice;
