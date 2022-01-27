@@ -3,20 +3,27 @@ package com.company;
 public class Thing {
     private String name;
     private boolean fragile;
-    private boolean Package;
+    private boolean doublePackage;
 
     public Thing(String name, boolean fragile) {
         this.name = name;
         this.fragile = fragile;
-        this.Package = Package;
+        this.doublePackage = doublePackage;
+    }
+
+    public Thing(String name, boolean fragile, boolean doublePackage) {
+        this.name = name;
+        this.fragile = fragile;
+        this.doublePackage = doublePackage;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setDoublePackage() {
-        this.Package = Package;
+    public boolean setDoublePackage() {
+        doublePackage = true;
+        return doublePackage;
     }
 
     public boolean isFragile() {
@@ -24,7 +31,7 @@ public class Thing {
     }
 
     public boolean isDoublePackage() {
-        return Package;
+        return doublePackage;
     }
 
     @Override
@@ -32,7 +39,9 @@ public class Thing {
         return "Thing{" +
                 "name='" + name + '\'' +
                 ", fragile=" + fragile +
-                ", doublePackage=" + Package +
+                ", doublePackage=" + doublePackage +
                 '}';
     }
+
+
 }

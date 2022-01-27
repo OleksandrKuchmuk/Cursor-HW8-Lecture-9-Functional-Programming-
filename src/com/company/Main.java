@@ -93,42 +93,35 @@ public class Main {
         System.out.println("\n-----------------------------------------------------------------------------\nItem 4*:\n");
 
         List<Thing> box1 = new ArrayList<>();
-        box1.add(new Thing("Ball", false));
-        box1.add(new Thing("Pen", false));
-        box1.add(new Thing("Pencil", false));
-        box1.add(new Thing("Vase", true));
-        box1.add(new Thing("Glass", true));
+        box1.add(new Thing("Ball", false, false));
+        box1.add(new Thing("Pen", false, false));
+        box1.add(new Thing("Pencil", false, false));
+        box1.add(new Thing("Vase", true, false));
+        box1.add(new Thing("Glass", true, false));
 
         List<Thing> box2 = new ArrayList<>();
-        box2.add(new Thing("lace", false));
-        box2.add(new Thing("Smartphone", true));
-        box2.add(new Thing("Notebook", true));
-        box2.add(new Thing("Carafe", true));
-        box2.add(new Thing("Monitor", false));
+        box2.add(new Thing("lace", false, false));
+        box2.add(new Thing("Smartphone", true, false));
+        box2.add(new Thing("Notebook", true, false));
+        box2.add(new Thing("Carafe", true, false));
+        box2.add(new Thing("Monitor", false, false));
 
         List<Thing> box3 = new ArrayList<>();
-        box3.add(new Thing("Camera", true));
-        box3.add(new Thing("Hammer", false));
-        box3.add(new Thing("Battery", true));
-        box3.add(new Thing("Wheel", false));
-        box3.add(new Thing("Steering wheel", false));
+        box3.add(new Thing("Camera", true, false));
+        box3.add(new Thing("Hammer", false, false));
+        box3.add(new Thing("Battery", true, false));
+        box3.add(new Thing("Wheel", false, false));
+        box3.add(new Thing("Steering wheel", false, false));
 
         List<List<Thing>> listOfBoxes = new ArrayList<>();
         listOfBoxes.add(box1);
         listOfBoxes.add(box2);
         listOfBoxes.add(box3);
 
-//        System.out.println(listOfBoxes);
-
         listOfBoxes.stream()
                 .flatMap(Collection::stream)
                 .filter(it -> it.isFragile())
+                .map(it -> new Thing(it.getName(), it.isFragile(), it.setDoublePackage()))
                 .forEach(System.out::println);
-//                .collect(Collectors.groupingBy(Collectors.counting()));
-
-//        System.out.println(newListOfBoxes);
-
-
     }
-
 }
